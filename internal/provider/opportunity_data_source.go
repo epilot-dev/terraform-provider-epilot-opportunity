@@ -171,8 +171,7 @@ func (r *OpportunityDataSource) Schema(ctx context.Context, req datasource.Schem
 				},
 			},
 			"current_task": schema.StringAttribute{
-				Computed:    true,
-				Description: `Default: "open"`,
+				Computed: true,
 			},
 			"customer": schema.SingleNestedAttribute{
 				Computed: true,
@@ -296,22 +295,18 @@ func (r *OpportunityDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed: true,
 				Attributes: map[string]schema.Attribute{
 					"href": schema.StringAttribute{
-						Computed:    true,
-						Description: `Default: null`,
+						Computed: true,
 					},
 					"title": schema.StringAttribute{
-						Computed:    true,
-						Description: `Default: "manual"`,
+						Computed: true,
 					},
 				},
 			},
 			"source_type": schema.StringAttribute{
-				Computed:    true,
-				Description: `Default: "manual"`,
+				Computed: true,
 			},
 			"status": schema.StringAttribute{
-				Computed:    true,
-				Description: `Default: "open"`,
+				Computed: true,
 			},
 		},
 	}
