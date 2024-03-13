@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1903676e-ea51-4163-a695-00a986e5f1e5
 management:
-  docChecksum: 25a22a5156b57c91ef65b8666d4b823e
+  docChecksum: bee3610035262ebb3ffd9bd4f83b23a9
   docVersion: 1.0.0
-  speakeasyVersion: 1.204.1
-  generationVersion: 2.279.1
-  releaseVersion: 0.5.0
-  configChecksum: c58c4a330496a552101dbe33a040962e
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 0.5.1
+  configChecksum: 684740170a0fad05895e321d6b656ded
   repoURL: https://github.com/epilot-dev/terraform-provider-epilot-opportunity.git
   repoSubDirectory: .
   published: true
@@ -14,7 +14,7 @@ features:
   terraform:
     additionalProperties: 0.1.2
     constsAndDefaults: 0.1.4
-    core: 3.10.2
+    core: 3.10.3
     globalSecurity: 2.81.5
     globalServerURLs: 2.82.1
 generatedFiles:
