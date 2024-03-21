@@ -4,7 +4,8 @@ package provider
 
 import (
 	"encoding/json"
-	"github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/sdk/pkg/models/shared"
+	tfTypes "github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/provider/types"
+	"github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/sdk/models/shared"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"time"
 )
@@ -35,7 +36,7 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 			r.Owners = r.Owners[:len(resp.Owners)]
 		}
 		for ownersCount, ownersItem := range resp.Owners {
-			var owners1 BaseEntityOwner
+			var owners1 tfTypes.BaseEntityOwner
 			owners1.OrgID = types.StringValue(ownersItem.OrgID)
 			owners1.UserID = types.StringPointerValue(ownersItem.UserID)
 			if ownersCount+1 > len(r.Owners) {
@@ -55,12 +56,12 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.Address == nil {
 			r.Address = nil
 		} else {
-			r.Address = &BaseRelationRef{}
+			r.Address = &tfTypes.BaseRelationRef{}
 			if len(r.Address.DollarRelationRef) > len(resp.Address.DollarRelationRef) {
 				r.Address.DollarRelationRef = r.Address.DollarRelationRef[:len(resp.Address.DollarRelationRef)]
 			}
 			for dollarRelationRefCount, dollarRelationRefItem := range resp.Address.DollarRelationRef {
-				var dollarRelationRef1 DollarRelationRef
+				var dollarRelationRef1 tfTypes.DollarRelationRef
 				dollarRelationRef1.ID = types.StringPointerValue(dollarRelationRefItem.ID)
 				dollarRelationRef1.Tags = nil
 				for _, v := range dollarRelationRefItem.Tags {
@@ -81,12 +82,12 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.BillingAddress == nil {
 			r.BillingAddress = nil
 		} else {
-			r.BillingAddress = &BaseRelationRef{}
+			r.BillingAddress = &tfTypes.BaseRelationRef{}
 			if len(r.BillingAddress.DollarRelationRef) > len(resp.BillingAddress.DollarRelationRef) {
 				r.BillingAddress.DollarRelationRef = r.BillingAddress.DollarRelationRef[:len(resp.BillingAddress.DollarRelationRef)]
 			}
 			for dollarRelationRefCount1, dollarRelationRefItem1 := range resp.BillingAddress.DollarRelationRef {
-				var dollarRelationRef3 DollarRelationRef
+				var dollarRelationRef3 tfTypes.DollarRelationRef
 				dollarRelationRef3.ID = types.StringPointerValue(dollarRelationRefItem1.ID)
 				dollarRelationRef3.Tags = nil
 				for _, v := range dollarRelationRefItem1.Tags {
@@ -108,12 +109,12 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.Customer == nil {
 			r.Customer = nil
 		} else {
-			r.Customer = &BaseRelation{}
+			r.Customer = &tfTypes.BaseRelation{}
 			if len(r.Customer.DollarRelation) > len(resp.Customer.DollarRelation) {
 				r.Customer.DollarRelation = r.Customer.DollarRelation[:len(resp.Customer.DollarRelation)]
 			}
 			for dollarRelationCount, dollarRelationItem := range resp.Customer.DollarRelation {
-				var dollarRelation1 DollarRelation
+				var dollarRelation1 tfTypes.DollarRelation
 				dollarRelation1.Tags = nil
 				for _, v := range dollarRelationItem.Tags {
 					dollarRelation1.Tags = append(dollarRelation1.Tags, types.StringValue(v))
@@ -131,7 +132,7 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 			r.Dates = r.Dates[:len(resp.Dates)]
 		}
 		for datesCount, datesItem := range resp.Dates {
-			var dates1 Dates
+			var dates1 tfTypes.Dates
 			dates1.Tags = nil
 			for _, v := range datesItem.Tags {
 				dates1.Tags = append(dates1.Tags, types.StringValue(v))
@@ -153,12 +154,12 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.DeliveryAddress == nil {
 			r.DeliveryAddress = nil
 		} else {
-			r.DeliveryAddress = &BaseRelationRef{}
+			r.DeliveryAddress = &tfTypes.BaseRelationRef{}
 			if len(r.DeliveryAddress.DollarRelationRef) > len(resp.DeliveryAddress.DollarRelationRef) {
 				r.DeliveryAddress.DollarRelationRef = r.DeliveryAddress.DollarRelationRef[:len(resp.DeliveryAddress.DollarRelationRef)]
 			}
 			for dollarRelationRefCount2, dollarRelationRefItem2 := range resp.DeliveryAddress.DollarRelationRef {
-				var dollarRelationRef5 DollarRelationRef
+				var dollarRelationRef5 tfTypes.DollarRelationRef
 				dollarRelationRef5.ID = types.StringPointerValue(dollarRelationRefItem2.ID)
 				dollarRelationRef5.Tags = nil
 				for _, v := range dollarRelationRefItem2.Tags {
@@ -180,12 +181,12 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.Items == nil {
 			r.Items = nil
 		} else {
-			r.Items = &BaseRelation{}
+			r.Items = &tfTypes.BaseRelation{}
 			if len(r.Items.DollarRelation) > len(resp.Items.DollarRelation) {
 				r.Items.DollarRelation = r.Items.DollarRelation[:len(resp.Items.DollarRelation)]
 			}
 			for dollarRelationCount1, dollarRelationItem1 := range resp.Items.DollarRelation {
-				var dollarRelation3 DollarRelation
+				var dollarRelation3 tfTypes.DollarRelation
 				dollarRelation3.Tags = nil
 				for _, v := range dollarRelationItem1.Tags {
 					dollarRelation3.Tags = append(dollarRelation3.Tags, types.StringValue(v))
@@ -203,12 +204,12 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.Payment == nil {
 			r.Payment = nil
 		} else {
-			r.Payment = &BaseRelationRef{}
+			r.Payment = &tfTypes.BaseRelationRef{}
 			if len(r.Payment.DollarRelationRef) > len(resp.Payment.DollarRelationRef) {
 				r.Payment.DollarRelationRef = r.Payment.DollarRelationRef[:len(resp.Payment.DollarRelationRef)]
 			}
 			for dollarRelationRefCount3, dollarRelationRefItem3 := range resp.Payment.DollarRelationRef {
-				var dollarRelationRef7 DollarRelationRef
+				var dollarRelationRef7 tfTypes.DollarRelationRef
 				dollarRelationRef7.ID = types.StringPointerValue(dollarRelationRefItem3.ID)
 				dollarRelationRef7.Tags = nil
 				for _, v := range dollarRelationRefItem3.Tags {
@@ -229,7 +230,7 @@ func (r *OpportunityDataSourceModel) RefreshFromSharedOpportunity(resp *shared.O
 		if resp.Source == nil {
 			r.Source = nil
 		} else {
-			r.Source = &OpportunityCreateSource{}
+			r.Source = &tfTypes.OpportunityCreateSource{}
 			r.Source.Href = types.StringPointerValue(resp.Source.Href)
 			r.Source.Title = types.StringPointerValue(resp.Source.Title)
 		}

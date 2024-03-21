@@ -3,10 +3,10 @@ id: 1903676e-ea51-4163-a695-00a986e5f1e5
 management:
   docChecksum: bee3610035262ebb3ffd9bd4f83b23a9
   docVersion: 1.0.0
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 0.5.1
-  configChecksum: 684740170a0fad05895e321d6b656ded
+  speakeasyVersion: 1.215.1
+  generationVersion: 2.286.4
+  releaseVersion: 0.6.0
+  configChecksum: 252de581377648e7f8baeeec27ac5741
   repoURL: https://github.com/epilot-dev/terraform-provider-epilot-opportunity.git
   repoSubDirectory: .
   published: true
@@ -14,12 +14,47 @@ features:
   terraform:
     additionalProperties: 0.1.2
     constsAndDefaults: 0.1.4
-    core: 3.10.3
-    globalSecurity: 2.81.5
+    core: 3.11.1
+    globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
 generatedFiles:
   - internal/sdk/opportunity.go
   - internal/sdk/sdk.go
+  - internal/sdk/models/errors/sdkerror.go
+  - internal/sdk/types/bigint.go
+  - internal/sdk/types/date.go
+  - internal/sdk/types/datetime.go
+  - internal/sdk/types/decimal.go
+  - internal/sdk/types/pointers.go
+  - internal/sdk/internal/utils/contenttype.go
+  - internal/sdk/internal/utils/form.go
+  - internal/sdk/internal/utils/headers.go
+  - internal/sdk/internal/utils/json.go
+  - internal/sdk/internal/utils/pathparams.go
+  - internal/sdk/internal/utils/queryparams.go
+  - internal/sdk/internal/utils/requestbody.go
+  - internal/sdk/internal/utils/retries.go
+  - internal/sdk/internal/utils/security.go
+  - internal/sdk/internal/utils/utils.go
+  - internal/sdk/models/operations/createopportunity.go
+  - internal/sdk/models/operations/deleteopportunity.go
+  - internal/sdk/models/operations/getopportunity.go
+  - internal/sdk/models/operations/patchopportunity.go
+  - internal/sdk/models/operations/updateopportunity.go
+  - internal/sdk/models/shared/servererror.go
+  - internal/sdk/models/shared/opportunity.go
+  - internal/sdk/models/shared/baserelationref.go
+  - internal/sdk/models/shared/baserelation.go
+  - internal/sdk/models/shared/baseentityowner.go
+  - internal/sdk/models/shared/baseentityacl.go
+  - internal/sdk/models/shared/clienterror.go
+  - internal/sdk/models/shared/opportunitycreate.go
+  - internal/sdk/models/shared/opportunitypatch.go
+  - internal/sdk/models/shared/security.go
+  - internal/sdk/.gitignore
+  - internal/sdk/.gitattributes
+  - internal/sdk/internal/hooks/registration.go
+  - internal/sdk/internal/hooks/hooks.go
   - examples/README.md
   - go.mod
   - go.sum
@@ -48,22 +83,6 @@ generatedFiles:
   - internal/provider/reflect/slice.go
   - internal/provider/reflect/struct.go
   - internal/provider/utils.go
-  - internal/sdk/pkg/models/sdkerrors/sdkerror.go
-  - internal/sdk/pkg/types/bigint.go
-  - internal/sdk/pkg/types/date.go
-  - internal/sdk/pkg/types/datetime.go
-  - internal/sdk/pkg/types/decimal.go
-  - internal/sdk/pkg/types/pointers.go
-  - internal/sdk/pkg/utils/contenttype.go
-  - internal/sdk/pkg/utils/form.go
-  - internal/sdk/pkg/utils/headers.go
-  - internal/sdk/pkg/utils/json.go
-  - internal/sdk/pkg/utils/pathparams.go
-  - internal/sdk/pkg/utils/queryparams.go
-  - internal/sdk/pkg/utils/requestbody.go
-  - internal/sdk/pkg/utils/retries.go
-  - internal/sdk/pkg/utils/security.go
-  - internal/sdk/pkg/utils/utils.go
   - internal/validators/DateValidator.go
   - internal/validators/ExactlyOneChild.go
   - internal/validators/JSONParseValidator.go
@@ -80,29 +99,14 @@ generatedFiles:
   - main.go
   - terraform-registry-manifest.json
   - tools/tools.go
-  - internal/sdk/pkg/models/operations/createopportunity.go
-  - internal/sdk/pkg/models/operations/deleteopportunity.go
-  - internal/sdk/pkg/models/operations/getopportunity.go
-  - internal/sdk/pkg/models/operations/patchopportunity.go
-  - internal/sdk/pkg/models/operations/updateopportunity.go
-  - internal/sdk/pkg/models/shared/servererror.go
-  - internal/sdk/pkg/models/shared/opportunity.go
-  - internal/sdk/pkg/models/shared/baserelationref.go
-  - internal/sdk/pkg/models/shared/baserelation.go
-  - internal/sdk/pkg/models/shared/baseentityowner.go
-  - internal/sdk/pkg/models/shared/baseentityacl.go
-  - internal/sdk/pkg/models/shared/clienterror.go
-  - internal/sdk/pkg/models/shared/opportunitycreate.go
-  - internal/sdk/pkg/models/shared/opportunitypatch.go
-  - internal/sdk/pkg/models/shared/security.go
-  - internal/provider/type_base_entity_acl.go
-  - internal/provider/type_base_entity_owner.go
-  - internal/provider/type_dollar_relation_ref.go
-  - internal/provider/type_base_relation_ref.go
-  - internal/provider/type_dollar_relation.go
-  - internal/provider/type_base_relation.go
-  - internal/provider/type_dates.go
-  - internal/provider/type_opportunity_create_source.go
+  - internal/provider/types/base_entity_acl.go
+  - internal/provider/types/base_entity_owner.go
+  - internal/provider/types/dollar_relation_ref.go
+  - internal/provider/types/base_relation_ref.go
+  - internal/provider/types/dollar_relation.go
+  - internal/provider/types/base_relation.go
+  - internal/provider/types/dates.go
+  - internal/provider/types/opportunity_create_source.go
   - USAGE.md
   - internal/provider/provider.go
   - examples/provider/provider.tf
