@@ -292,15 +292,15 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			additionalPropertiesResult, _ := json.Marshal(resp.ACL.AdditionalProperties)
 			r.ACL.AdditionalProperties = types.StringValue(string(additionalPropertiesResult))
 		}
-		r.ACL.Delete = nil
+		r.ACL.Delete = []types.String{}
 		for _, v := range resp.ACL.Delete {
 			r.ACL.Delete = append(r.ACL.Delete, types.StringValue(v))
 		}
-		r.ACL.Edit = nil
+		r.ACL.Edit = []types.String{}
 		for _, v := range resp.ACL.Edit {
 			r.ACL.Edit = append(r.ACL.Edit, types.StringValue(v))
 		}
-		r.ACL.View = nil
+		r.ACL.View = []types.String{}
 		for _, v := range resp.ACL.View {
 			r.ACL.View = append(r.ACL.View, types.StringValue(v))
 		}
@@ -322,7 +322,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			}
 		}
 		r.Schema = types.StringValue(resp.Schema)
-		r.Tags = nil
+		r.Tags = []types.String{}
 		for _, v := range resp.Tags {
 			r.Tags = append(r.Tags, types.StringValue(v))
 		}
@@ -338,7 +338,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			for dollarRelationRefCount, dollarRelationRefItem := range resp.Address.DollarRelationRef {
 				var dollarRelationRef1 tfTypes.DollarRelationRef
 				dollarRelationRef1.ID = types.StringPointerValue(dollarRelationRefItem.ID)
-				dollarRelationRef1.Tags = nil
+				dollarRelationRef1.Tags = []types.String{}
 				for _, v := range dollarRelationRefItem.Tags {
 					dollarRelationRef1.Tags = append(dollarRelationRef1.Tags, types.StringValue(v))
 				}
@@ -364,7 +364,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			for dollarRelationRefCount1, dollarRelationRefItem1 := range resp.BillingAddress.DollarRelationRef {
 				var dollarRelationRef3 tfTypes.DollarRelationRef
 				dollarRelationRef3.ID = types.StringPointerValue(dollarRelationRefItem1.ID)
-				dollarRelationRef3.Tags = nil
+				dollarRelationRef3.Tags = []types.String{}
 				for _, v := range dollarRelationRefItem1.Tags {
 					dollarRelationRef3.Tags = append(dollarRelationRef3.Tags, types.StringValue(v))
 				}
@@ -390,7 +390,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			}
 			for dollarRelationCount, dollarRelationItem := range resp.Customer.DollarRelation {
 				var dollarRelation1 tfTypes.DollarRelation
-				dollarRelation1.Tags = nil
+				dollarRelation1.Tags = []types.String{}
 				for _, v := range dollarRelationItem.Tags {
 					dollarRelation1.Tags = append(dollarRelation1.Tags, types.StringValue(v))
 				}
@@ -408,7 +408,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 		}
 		for datesCount, datesItem := range resp.Dates {
 			var dates1 tfTypes.Dates
-			dates1.Tags = nil
+			dates1.Tags = []types.String{}
 			for _, v := range datesItem.Tags {
 				dates1.Tags = append(dates1.Tags, types.StringValue(v))
 			}
@@ -436,7 +436,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			for dollarRelationRefCount2, dollarRelationRefItem2 := range resp.DeliveryAddress.DollarRelationRef {
 				var dollarRelationRef5 tfTypes.DollarRelationRef
 				dollarRelationRef5.ID = types.StringPointerValue(dollarRelationRefItem2.ID)
-				dollarRelationRef5.Tags = nil
+				dollarRelationRef5.Tags = []types.String{}
 				for _, v := range dollarRelationRefItem2.Tags {
 					dollarRelationRef5.Tags = append(dollarRelationRef5.Tags, types.StringValue(v))
 				}
@@ -461,7 +461,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			}
 			for dollarRelationCount1, dollarRelationItem1 := range resp.Items.DollarRelation {
 				var dollarRelation3 tfTypes.DollarRelation
-				dollarRelation3.Tags = nil
+				dollarRelation3.Tags = []types.String{}
 				for _, v := range dollarRelationItem1.Tags {
 					dollarRelation3.Tags = append(dollarRelation3.Tags, types.StringValue(v))
 				}
@@ -485,7 +485,7 @@ func (r *OpportunityResourceModel) RefreshFromSharedOpportunity(resp *shared.Opp
 			for dollarRelationRefCount3, dollarRelationRefItem3 := range resp.Payment.DollarRelationRef {
 				var dollarRelationRef7 tfTypes.DollarRelationRef
 				dollarRelationRef7.ID = types.StringPointerValue(dollarRelationRefItem3.ID)
-				dollarRelationRef7.Tags = nil
+				dollarRelationRef7.Tags = []types.String{}
 				for _, v := range dollarRelationRefItem3.Tags {
 					dollarRelationRef7.Tags = append(dollarRelationRef7.Tags, types.StringValue(v))
 				}
