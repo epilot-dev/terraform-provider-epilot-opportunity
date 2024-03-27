@@ -5,8 +5,9 @@ package provider
 import (
 	"context"
 	"fmt"
+	tfTypes "github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/provider/types"
 	"github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/sdk"
-	"github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/sdk/pkg/models/operations"
+	"github.com/epilot-dev/terraform-provider-epilot-opportunity/internal/sdk/models/operations"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,28 +29,28 @@ type OpportunityDataSource struct {
 
 // OpportunityDataSourceModel describes the data model.
 type OpportunityDataSourceModel struct {
-	ACL              BaseEntityACL            `tfsdk:"acl"`
-	CreatedAt        types.String             `tfsdk:"created_at"`
-	Org              types.String             `tfsdk:"org"`
-	Owners           []BaseEntityOwner        `tfsdk:"owners"`
-	Schema           types.String             `tfsdk:"schema"`
-	Tags             []types.String           `tfsdk:"tags"`
-	Title            types.String             `tfsdk:"title"`
-	UpdatedAt        types.String             `tfsdk:"updated_at"`
-	Address          *BaseRelationRef         `tfsdk:"address"`
-	BillingAddress   *BaseRelationRef         `tfsdk:"billing_address"`
-	CurrentTask      types.String             `tfsdk:"current_task"`
-	Customer         *BaseRelation            `tfsdk:"customer"`
-	Dates            []Dates                  `tfsdk:"dates"`
-	DeliveryAddress  *BaseRelationRef         `tfsdk:"delivery_address"`
-	Hydrate          types.Bool               `tfsdk:"hydrate"`
-	ID               types.String             `tfsdk:"id"`
-	Items            *BaseRelation            `tfsdk:"items"`
-	OpportunityTitle types.String             `tfsdk:"opportunity_title"`
-	Payment          *BaseRelationRef         `tfsdk:"payment"`
-	Source           *OpportunityCreateSource `tfsdk:"source"`
-	SourceType       types.String             `tfsdk:"source_type"`
-	Status           types.String             `tfsdk:"status"`
+	ACL              tfTypes.BaseEntityACL            `tfsdk:"acl"`
+	CreatedAt        types.String                     `tfsdk:"created_at"`
+	Org              types.String                     `tfsdk:"org"`
+	Owners           []tfTypes.BaseEntityOwner        `tfsdk:"owners"`
+	Schema           types.String                     `tfsdk:"schema"`
+	Tags             []types.String                   `tfsdk:"tags"`
+	Title            types.String                     `tfsdk:"title"`
+	UpdatedAt        types.String                     `tfsdk:"updated_at"`
+	Address          *tfTypes.BaseRelationRef         `tfsdk:"address"`
+	BillingAddress   *tfTypes.BaseRelationRef         `tfsdk:"billing_address"`
+	CurrentTask      types.String                     `tfsdk:"current_task"`
+	Customer         *tfTypes.BaseRelation            `tfsdk:"customer"`
+	Dates            []tfTypes.Dates                  `tfsdk:"dates"`
+	DeliveryAddress  *tfTypes.BaseRelationRef         `tfsdk:"delivery_address"`
+	Hydrate          types.Bool                       `tfsdk:"hydrate"`
+	ID               types.String                     `tfsdk:"id"`
+	Items            *tfTypes.BaseRelation            `tfsdk:"items"`
+	OpportunityTitle types.String                     `tfsdk:"opportunity_title"`
+	Payment          *tfTypes.BaseRelationRef         `tfsdk:"payment"`
+	Source           *tfTypes.OpportunityCreateSource `tfsdk:"source"`
+	SourceType       types.String                     `tfsdk:"source_type"`
+	Status           types.String                     `tfsdk:"status"`
 }
 
 // Metadata returns the data source type name.
@@ -171,8 +172,7 @@ func (r *OpportunityDataSource) Schema(ctx context.Context, req datasource.Schem
 				},
 			},
 			"current_task": schema.StringAttribute{
-				Computed:    true,
-				Description: `Default: "open"`,
+				Computed: true,
 			},
 			"customer": schema.SingleNestedAttribute{
 				Computed: true,
@@ -296,22 +296,18 @@ func (r *OpportunityDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed: true,
 				Attributes: map[string]schema.Attribute{
 					"href": schema.StringAttribute{
-						Computed:    true,
-						Description: `Default: null`,
+						Computed: true,
 					},
 					"title": schema.StringAttribute{
-						Computed:    true,
-						Description: `Default: "manual"`,
+						Computed: true,
 					},
 				},
 			},
 			"source_type": schema.StringAttribute{
-				Computed:    true,
-				Description: `Default: "manual"`,
+				Computed: true,
 			},
 			"status": schema.StringAttribute{
-				Computed:    true,
-				Description: `Default: "open"`,
+				Computed: true,
 			},
 		},
 	}
